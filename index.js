@@ -23,6 +23,15 @@ module.exports.dest = function(dest) {
 	return new ExportProjectStream(dest);
 };
 
+/**
+ * Creates a transformation stream for rewriting URLs on imported files
+ * @param  {Object} config Rewrite config
+ * @return {RewriteUrlStream}
+ */
+module.exports.rewriteUrl = function(config) {
+	
+};
+
 class ReadConfigStream extends stream.Readable {
 	constructor(src) {
 		super({objectMode: true});
@@ -76,3 +85,7 @@ class ExportProjectStream extends stream.Writable {
 
 	}
 };
+
+class RewriteUrlStream extends stream.Transform {
+	
+}
