@@ -18,10 +18,13 @@
   "homepage": "https://github.com/sergeche/site-import#readme",
   "dependencies": {
     "css-transform": "sergeche/css-transform",
+    "debug": "^2.2.0",
     "es6-promise": "^2.3.0",
     "glob": "^5.0.10",
     "graceful-fs": "^3.0.8",
     "html-transform": "sergeche/html-transform",
+    "minimatch": "^2.0.8",
+    "vinyl-fs": "^1.0.0",
     "xtend": "^4.0.0"
   }
 }
