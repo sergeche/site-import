@@ -1,0 +1,27 @@
+{
+  "name": "site-import",
+  "version": "1.0.0",
+  "description": "Imports static web-site from one location into another with URL transformations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeche/site-import.git"
+  },
+  "author": "Sergey Chikuyonok <serge.che@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeche/site-import/issues"
+  },
+  "homepage": "https://github.com/sergeche/site-import#readme",
+  "dependencies": {
+    "css-transform": "sergeche/css-transform",
+    "es6-promise": "^2.3.0",
+    "glob": "^5.0.10",
+    "graceful-fs": "^3.0.8",
+    "html-transform": "sergeche/html-transform",
+    "xtend": "^4.0.0"
+  }
+}
