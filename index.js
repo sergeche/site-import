@@ -1,6 +1,5 @@
 'use strict';
 
-var stream = require('stream');
 var ReadConfigStream = require('./lib/stream/read-config');
 var RewriteUrlStream = require('./lib/stream/rewrite-url');
 var ExportProjectStream = require('./lib/stream/export-project');
