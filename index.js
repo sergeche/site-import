@@ -34,8 +34,8 @@ module.exports.rewriteUrl = function(config) {
 };
 
 /**
- * Creates a transformation stream marking all files in current project to be
- * symlinked instead of copied
+ * Creates a transformation stream marking all files in current project that
+ * has no transformations to be symlinked instead of copied
  * @return {SymlinkStream}
  */
 module.exports.symlink = function() {

@@ -20,7 +20,7 @@ imp.src('./test/in/')
 	});
 	next(null, project);
 }))
-// .pipe(imp.symlink())
+.pipe(imp.symlink())
 .pipe(imp.dest('./out'))
 .on('end', function() {
 	console.log('Finished project import');
