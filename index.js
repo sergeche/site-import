@@ -20,8 +20,8 @@ module.exports.src = function(src, options) {
  * @param  {String} dest
  * @return {ExportProjectStream}
  */
-module.exports.dest = function(dest) {
-	return new ExportProjectStream(dest);
+module.exports.dest = function(dest, options) {
+	return new ExportProjectStream(dest, options);
 };
 
 /**
