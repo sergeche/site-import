@@ -41,3 +41,8 @@ module.exports.rewriteUrl = function(config) {
 module.exports.symlink = function() {
 	return new SymlinkStream();
 };
+
+/**
+ * Expose project config class for creating custom readers
+ */
+module.exports.ProjectConfig = require('./lib/project-config');
