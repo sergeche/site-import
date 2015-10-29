@@ -1,6 +1,6 @@
 {
   "name": "site-import",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Imports static web-site from one location into another with URL transformations",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "es6-promise": "^2.3.0",
     "glob": "^5.0.10",
     "graceful-fs": "^3.0.8",
-    "html-transform": "sergeche/html-transform#v1.2.0",
+    "html-transform": "sergeche/html-transform#v1.3.0",
     "minimatch": "^2.0.8",
     "vinyl-fs": "^1.0.0",
     "xtend": "^4.0.0"
