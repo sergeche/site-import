@@ -1,6 +1,6 @@
 {
   "name": "site-import",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Imports static web-site from one location into another with URL transformations",
   "main": "index.js",
   "scripts": {
