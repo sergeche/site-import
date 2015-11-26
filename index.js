@@ -4,6 +4,7 @@ var ReadConfigStream = require('./lib/stream/read-config');
 var RewriteUrlStream = require('./lib/stream/rewrite-url');
 var ExportProjectStream = require('./lib/stream/export-project');
 var SymlinkStream = require('./lib/stream/symlink');
+var FileTransformStream = require('./lib/stream/file-transform');
 
 /**
  * Creates readable stream with project configs in given `src` path
@@ -40,6 +41,16 @@ module.exports.rewriteUrl = function(config) {
  */
 module.exports.symlink = function() {
 	return new SymlinkStream();
+};
+
+/**
+ * A helper function that creates project’s file transform stream. Used by 
+ * custom project consumers
+ * @param  {Object} config Rewrite config
+ * @return {FileTransformStream}
+ */
+module.exports.fileTransform = function(project) {
+	return new FileTransformStream(project);
 };
 
 /**
