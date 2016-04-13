@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/sergeche/site-import#readme",
   "dependencies": {
-    "css-transform": "sergeche/css-transform#v1.0.1",
+    "css-transform": "sergeche/css-transform#v1.0.2",
     "debug": "^2.2.0",
     "es6-promise": "^2.3.0",
     "glob": "^5.0.10",
