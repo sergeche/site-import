@@ -1,9 +1,13 @@
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
+var stream = require('stream');
 var through = require('through2');
 var del = require('del');
-var imp = require('../');
+var vfs = require('vinyl-fs');
+var findSymlinks = require('../lib/find-symlinks');
+var projectConfig = require('../lib/project-config2');
+// var imp = require('../');
 
 function p(file) {
 	return path.join(__dirname, file);
@@ -17,7 +21,7 @@ describe('Import site', function() {
 	before(function(done) {
 		del(path.join(__dirname, './out'), done);
 	});
-
+	
 	it('import', function(done) {
 		// create import pipeline
 		var injectCode = '<!-- inject -->';
