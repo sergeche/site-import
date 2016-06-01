@@ -6,7 +6,7 @@ const vfs = require('vinyl-fs');
 const grep = require('../lib/grep');
 const dummy = require('./assets/dummy-writer');
 
-describe.only('Grep', () => {
+describe('Grep', () => {
     function accumulator() {
         var s = new stream.Transform({
             objectMode: true,
