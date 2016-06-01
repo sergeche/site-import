@@ -4,9 +4,10 @@ const assert = require('assert');
 const stream = require('stream');
 const vfs = require('vinyl-fs');
 const projectConfig = require('../lib/project-config2');
+const dummy = require('./assets/dummy-writer');
 
 describe('Detect project config for file', () => {
-    it.only('file-based config', done => {
+    it('file-based config', done => {
 		var fileMap = {};
 
 		vfs.src('./in/**', {cwd: __dirname, follow: true, nodir: true})
@@ -18,7 +19,7 @@ describe('Detect project config for file', () => {
 				next(null, file);
 			}
 		}))
-		.pipe(vfs.dest('./out', {cwd: __dirname}))
+		.pipe(dummy())
 		.on('end', () => {
 			let project = fileMap['build.sh'];
 			assert.equal(project.prefix, '/');
