@@ -9,7 +9,7 @@ const vfs = require('vinyl-fs');
 const symlink = require('../lib/write-symlink');
 const dummy = require('./assets/dummy-writer');
 
-describe.only('Symlink', () => {
+describe('Symlink', () => {
     const destDir = './out-symlink';
     function accumulator() {
         var s = new stream.Transform({

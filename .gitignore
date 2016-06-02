@@ -1,3 +1,4 @@
 node_modules
 test/out
 test/out-symlink
+.DS_Store

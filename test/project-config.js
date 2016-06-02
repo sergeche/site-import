@@ -3,7 +3,7 @@
 const assert = require('assert');
 const stream = require('stream');
 const vfs = require('vinyl-fs');
-const projectConfig = require('../lib/project-config2');
+const projectConfig = require('../lib/project-config');
 const dummy = require('./assets/dummy-writer');
 
 describe('Detect project config for file', () => {

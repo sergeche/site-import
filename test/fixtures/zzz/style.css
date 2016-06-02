@@ -1,0 +1,8 @@
+body {
+	padding: 30px;
+	margin: 0;
+}
+
+h1:after {
+	content: url(/-/16613043/foo/bar/zzz/img/smiley.png);
+}

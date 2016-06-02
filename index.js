@@ -1,59 +1,49 @@
 'use strict';
 
-var ReadConfigStream = require('./lib/stream/read-config');
-var RewriteUrlStream = require('./lib/stream/rewrite-url');
-var ExportProjectStream = require('./lib/stream/export-project');
-var SymlinkStream = require('./lib/stream/symlink');
-var FileTransformStream = require('./lib/stream/file-transform');
+const combine = require('stream-combiner2');
+const project = require('./lib/project-config');
+const grep = require('./lib/grep');
+const symlink = require('./lib/write-symlink');
+const rewriteUrl = require('./lib/rewrite-url');
 
 /**
- * Creates readable stream with project configs in given `src` path
- * @param  {String} src
- * @return {ReadConfigStream}
+ * Default stream for site import: read project config from files in stream
+ * and rewrite URLs if HTML and CSS files
+ * @param  {Object} options
+ * @return {stream.Transform}
  */
-module.exports.src = function(src, options) {
-	return new ReadConfigStream(src, options);
+module.exports = function(options) {
+	return combine.obj([
+		project(options),
+		rewriteUrl(options)
+	]);
 };
 
 /**
- * Creates writable stream that exports projects defined in incoming
- * configs into `dest` folder
- * @param  {String} dest
- * @return {ExportProjectStream}
+ * Return VinylFS stream for reading project config from stream file
+ * @type {stream.Transform}
  */
-module.exports.dest = function(dest, options) {
-	return new ExportProjectStream(dest, options);
-};
+module.exports.project = project;
 
 /**
- * Creates a transformation stream for rewriting URLs on imported files
- * @param  {Object} config Rewrite config
- * @return {RewriteUrlStream}
+ * Applies given `callback` function to files that matches given glob `pattern`
+ * @param {String|Array} patterns
+ * @param {Function} callback
+ * @type {stream.Transform}
  */
-module.exports.rewriteUrl = function(config) {
-	return new RewriteUrlStream(config);
-};
+module.exports.grep = grep;
 
 /**
- * Creates a transformation stream marking all files in current project that
- * has no transformations to be symlinked instead of copied
- * @return {SymlinkStream}
+ * Returns stream that rewrites URL in HTML and CSS files. Rewrite is performed
+ * with data from project config
+ * @type {stream.Transform}
  */
-module.exports.symlink = function() {
-	return new SymlinkStream();
-};
+module.exports.rewriteUrl = rewriteUrl;
 
 /**
- * A helper function that creates project’s file transform stream. Used by 
- * custom project consumers
- * @param  {Object} config Rewrite config
- * @return {FileTransformStream}
+ * Returns stream that will create symlinks for files matching given `patterns`.
+ * These files won’t be passed further to prevent from saving file via VinylFS
+ * `.dest()` method
+ * @type {stream.Transform}
  */
-module.exports.fileTransform = function(project) {
-	return new FileTransformStream(project);
-};
-
-/**
- * Expose project config class for creating custom readers
- */
-module.exports.ProjectConfig = require('./lib/project-config');
+module.exports.symlink = symlink;
