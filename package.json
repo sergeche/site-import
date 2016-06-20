@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/sergeche/site-import#readme",
   "dependencies": {
-    "css-transform": "sergeche/css-transform#v2.0.0",
+    "css-transform": "sergeche/css-transform#v2.0.1",
     "debug": "^2.2.0",
     "glob": "^5.0.10",
-    "html-transform": "sergeche/html-transform#v2.0.0",
+    "html-transform": "sergeche/html-transform#v2.0.1",
     "minimatch": "^3.0.0",
     "mkdirp": "^0.5.1",
     "stream-combiner2": "^1.1.1"
